@@ -7,7 +7,7 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background: linear-gradient(135deg, #0d0d0d, #1a1a2e); 
   line-height: 1.6;
 }
 
@@ -49,14 +49,14 @@ nav a:hover {
   display: inline-block;
   margin-top: 1rem;
   padding: 10px 20px;
-  background: #ffb347;
+  background: #ff5ab7;
   color: #000;
   border-radius: 25px;
   text-decoration: none;
   transition: 0.3s;
 }
 .btn:hover {
-  background: #fff;
+  background: #00f7ff;
   color: #000;
 }
 
