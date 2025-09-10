@@ -7,8 +7,16 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a2e); 
+  background: linear-gradient(135deg, #0d0d0d, #1a1a2e, #ff2d95, #00f7ff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   line-height: 1.6;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 nav {
