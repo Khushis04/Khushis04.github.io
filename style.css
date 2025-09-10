@@ -7,17 +7,26 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a2e, #ff2d95, #00f7ff);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(
+    -45deg,
+    #0d0d0d,
+    #1a1a2e,
+    #c2185b,   
+    #00e5ff    
+  );
+  background-size: 300% 300%;
+  animation: gradientFlow 12s ease-in-out infinite;
   line-height: 1.6;
 }
 
-@keyframes gradientShift {
+@keyframes gradientFlow {
   0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
   50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
   100% { background-position: 0% 50%; }
 }
+
 
 nav {
   display: flex;
