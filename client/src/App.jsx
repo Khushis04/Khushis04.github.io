@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 
 export default function App() {
 
-  // Track analytics when site loads
   fetch("http://localhost:5000/api/track", { method: "POST" });
 
   return (
