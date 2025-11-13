@@ -1,26 +1,35 @@
+import { useEffect, useState } from "react";
+
 export default function Projects() {
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/Khushis04/repos")
+      .then(res => res.json())
+      .then(data => {
+        // Optional: filter out forks or unwanted repos
+        const filtered = data.filter(repo => !repo.fork);
+        setRepos(filtered);
+      })
+      .catch(err => console.log("GitHub API Error:", err));
+  }, []);
+
   return (
     <section id="projects">
       <h2>Projects</h2>
+
       <div className="grid">
-        <div className="card">
-          <h3>Recipe Recommender</h3>
-          <p>2M+ recipe dataset, FAISS search, and web app for smart cooking ideas.</p>
-          <a href="https://github.com/Khushis04/recipe-suggesrtor-web">View on GitHub</a>
-        </div>
-
-        <div className="card">
-          <h3>Smart Wardrobe</h3>
-          <p>AI + fashion project suggesting outfits based on weather & trends.</p>
-          <a href="https://github.com/Khushis04/wardrop-proj">View on GitHub</a>
-        </div>
-
-        <div className="card">
-          <h3>Small Scale LLM</h3>
-          <p>Trying to make a basic LLM to understand how an LLM works.</p>
-          <a href="https://github.com/Khushis04/small-scale-llm">View on GitHub</a>
-        </div>
+        {repos.map(repo => (
+          <div className="card" key={repo.id}>
+            <h3>{repo.name}</h3>
+            <p>{repo.description || "No description provided."}</p>
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
+
